@@ -41,6 +41,20 @@ pip install spotify_dl
 
 For more details, check out the `spotify_dl` GitHub repository: [https://github.com/SaptarshiSarkar12/spotify-dl](https://www.google.com/search?q=https://github.com/SaptarshiSarkar12/spotify-dl)
 
+### Installing `lolcat`
+
+You can also install `lolcat` using:
+
+```bash
+# For Debian Based Systems
+sudo apt install lolcat
+
+# For Arch Based Systems
+sudo pacman -Sy lolcat
+```
+
+For more details, check out the `lolcat` Github repository: [https://github.com/busyloop/lolcat](https://github.com/busyloop/lolcat)
+
 ## 🚀 How to Use
 
 1.  **Clone the Repository:**

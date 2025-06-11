@@ -16,16 +16,20 @@ getSpotifyAudio() {
 spotify_dl -l $1
 }
 
-echo " __   __  ______        ____    ____    _____   _____   ____   "
-echo "/\ \ /\ \/\__ _\      /\ _\`\ /\ _\`\ /\ __\`\/\ __\`\/\ _\`\  "
-echo "\ \`\`\\/ /\/_/\ \/      \ \,\L\_\ \ \L\ \ \ \/\ \ \ \/\ \ \ \L\_\ "
-echo " \ \`\ /   \ \ \        \/_\__ \\ \ ,__/\ \ \ \ \ \ \ \ \ \ _\/ "
-echo "  \`\ \ \   \ \ \          /\ \L\ \ \ \/  \ \ \_\ \ \ \_\ \ \/  "
-echo "    \ \_\   \ \_\          \`\____\ \_\   \ \_____\ \_____\ \_\  "
-echo "     \/_/    \/_/            \/_____/\/_/    \/_____/\/_____/\/_/  "
-echo "    Created by : @mgmehra2005        Follow on Git"
-echo ""
+printAsciiArt() {
+	echo " __   __  ______        ____    ____    _____   _____   ____   " | lolcat
+	echo "/\ \ /\ \/\__ _\      /\ _\`\ /\ _\`\ /\ __\`\/\ __\`\/\ _\`\  "	| lolcat
+	echo "\ \`\`\\/ /\/_/\ \/      \ \,\L\_\ \ \L\ \ \ \/\ \ \ \/\ \ \ \L\_\ " | lolcat
+	echo " \ \`\ /   \ \ \        \/_\__ \\ \ ,__/\ \ \ \ \ \ \ \ \ \ _\/ "	| lolcat
+	echo "  \`\ \ \   \ \ \          /\ \L\ \ \ \/  \ \ \_\ \ \ \_\ \ \/  " | lolcat
+	echo "    \ \_\   \ \_\          \`\____\ \_\   \ \_____\ \_____\ \_\  " | lolcat
+	echo "     \/_/    \/_/            \/_____/\/_/    \/_____/\/_____/\/_/  " | lolcat 
+	echo "    Created by : @mgmehra2005        Follow on Git" | lolcat 
+	echo ""
 
+}
+
+printAsciiArt
 echo 1. Youtube
 echo 2. Spotify
 
@@ -33,6 +37,7 @@ read -p ">> " choice
 clear
 
 if [[ $choice -eq 1 ]]; then
+	printAsciiArt
 	echo "Selected Platform Youtube"
 	echo ""
 	echo 1. Audio
@@ -41,12 +46,14 @@ if [[ $choice -eq 1 ]]; then
 	clear
 
 	if [[ $yt_choice -eq 1 ]]; then
+		printAsciiArt
 		echo "Selected Platform Youtube Downlaoding Audio"
 		echo ""
 		read -p "Audio File Link : " link
 		getYoutubeAudio $link
 
 	elif [[ $yt_choice -eq 2 ]]; then
+		printAsciiArt
 		echo "Selected Platform Youtube Downlaoding Video"
 		echo ""
 		read -p "Video File Link : " link
@@ -58,6 +65,7 @@ if [[ $choice -eq 1 ]]; then
 	fi
 
 elif [[ $choice -eq 2 ]]; then
+	printAsciiArt
 	echo "Selected Platform Spotify Downlaoding Audio"
 	echo ""
 	read -p "Audio File Link : " link
