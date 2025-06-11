@@ -46,7 +46,7 @@ For more details, check out the `spotify_dl` GitHub repository: [https://github.
 1.  **Clone the Repository:**
 
     ```bash
-    git clone [https://github.com/mgmehra2005/Yt-Spoof.git](https://github.com/mgmehra2005/Yt-Spoof.git)
+    git clone https://github.com/mgmehra2005/Yt-Spoof.git
     cd Yt-Spoof
     ```
 
