@@ -4,12 +4,12 @@
 #export SPOTIPY_CLIENT_SECRET=' '
 
 getYoutubeVideo() {
-yt-dlp -f bestaudio+bestvideo --merge-output-format mkv $1
+yt-dlp -f bestaudio+bestvideo --merge-output-format mkv --embed-metadata --embed-thumbnail $1
 }
 
 
 getYoutubeAudio() {
-yt-dlp -x --audio-format mp3 $1
+yt-dlp -x -f bestaudio --embed-metadata --embed-thumbnail $1
 }
 
 getSpotifyAudio() {
