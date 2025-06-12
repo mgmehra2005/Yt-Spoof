@@ -4,7 +4,7 @@
 #export SPOTIPY_CLIENT_SECRET=' '
 
 getYoutubeVideo() {
-yt-dlp $1
+yt-dlp -f bestaudio+bestvideo --merge-output-format mkv $1
 }
 
 
