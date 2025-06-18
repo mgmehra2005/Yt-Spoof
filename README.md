@@ -42,7 +42,7 @@ pip install spotify_dl
 For more details, check out the `spotify_dl` GitHub repository: [https://github.com/SaptarshiSarkar12/spotify-dl](https://www.google.com/search?q=https://github.com/SaptarshiSarkar12/spotify-dl)
 
 ### Installing `lolcat`
-
+( For Linux Only )
 You can also install `lolcat` using:
 
 ```bash
@@ -57,11 +57,13 @@ For more details, check out the `lolcat` Github repository: [https://github.com/
 
 ## 🚀 How to Use
 
+### For Linux
+
 1.  **Clone the Repository:**
 
     ```bash
     git clone https://github.com/mgmehra2005/Yt-Spoof.git
-    cd Yt-Spoof
+    cd Yt-Spoof/Linux
     ```
 
 2.  **Make the Script Executable:**
@@ -85,6 +87,24 @@ For more details, check out the `lolcat` Github repository: [https://github.com/
     ```bash
     ./yt-spoof.sh
     ```
+
+### For Windows
+
+1.  **Clone the Repository:**
+
+    ```bash
+    git clone https://github.com/mgmehra2005/Yt-Spoof.git
+    cd Yt-Spoof/Windows
+    ```
+
+2.  **Run the Script:**
+
+    ```bash
+    ./yt-spoof.bat
+    ```
+
+    *If you don't have Spotify API credentials, you'll need to create a Spotify Developer account and an application to get them.*
+
 
     The script will then guide you through the options for downloading YouTube videos/audios or Spotify audios.
 
