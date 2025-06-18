@@ -54,7 +54,7 @@ IF /I "%choice%"=="1" (
 ) ELSE IF /I "%choice%"=="5" (
 			echo Updating ( Donot interrupt during update )
 			del Yt_Spoof.bat
-			wget https://raw.githubusercontent.com/mgmehra2005/Yt-Spoof/refs/heads/main/Yt_Spoof.sh
+			wget https://raw.githubusercontent.com/mgmehra2005/Yt-Spoof/refs/heads/main/Windows/Yt_Spoof.bat
 			echo Update Complete
 			pause 
 ) ELSE (
