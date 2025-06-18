@@ -1,5 +1,7 @@
 # 📹🎶 YT-SPOOF: Your Ultimate Media Downloader! 🚀
 
+![Tutorial](/Resource/yt-spoof-tutorial.gif)
+
 Tired of juggling multiple tools to download your favorite YouTube videos, audios, and Spotify tracks? Look no further! YT-SPOOF is a powerful Bash script that leverages the magic of `yt-dlp` and `spotify_dl` to bring all your media downloads under one roof. 🥳
 
 ## ✨ Features
