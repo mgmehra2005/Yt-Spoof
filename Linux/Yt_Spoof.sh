@@ -1,76 +1,91 @@
 #!/bin/bash
 
-#export SPOTIPY_CLIENT_ID=' '
-#export SPOTIPY_CLIENT_SECRET=' '
+# Dependency check
+for cmd in yt-dlp spotify_dl lolcat; do
+    if ! command -v $cmd &>/dev/null; then
+        echo "Error: $cmd is not installed. Please install it first."
+        exit 1
+    fi
+done
 
 getYoutubeVideo() {
-yt-dlp -f bestaudio+bestvideo --merge-output-format mkv --embed-metadata --embed-thumbnail $1
+    yt-dlp -f bestaudio+bestvideo --merge-output-format mkv --embed-metadata --embed-thumbnail "$1"
+    if [[ $? -ne 0 ]]; then echo "Video download failed!"; fi
 }
 
-
 getYoutubeAudio() {
-yt-dlp -x -f bestaudio --embed-metadata --embed-thumbnail $1
+    yt-dlp -x -f bestaudio --embed-metadata --embed-thumbnail "$1"
+    if [[ $? -ne 0 ]]; then echo "Audio download failed!"; fi
 }
 
 getSpotifyAudio() {
-spotify_dl -l $1
+    spotify_dl -l "$1"
+    if [[ $? -ne 0 ]]; then echo "Spotify download failed!"; fi
 }
 
 printAsciiArt() {
-	echo " __   __  ______        ____    ____    _____   _____   ____   " | lolcat
-	echo "/\ \ /\ \/\__ _\      /\ _\`\ /\ _\`\ /\ __\`\/\ __\`\/\ _\`\  "	| lolcat
-	echo "\ \`\`\\/ /\/_/\ \/      \ \,\L\_\ \ \L\ \ \ \/\ \ \ \/\ \ \ \L\_\ " | lolcat
-	echo " \ \`\ /   \ \ \        \/_\__ \\ \ ,__/\ \ \ \ \ \ \ \ \ \ _\/ "	| lolcat
-	echo "  \`\ \ \   \ \ \          /\ \L\ \ \ \/  \ \ \_\ \ \ \_\ \ \/  " | lolcat
-	echo "    \ \_\   \ \_\          \`\____\ \_\   \ \_____\ \_____\ \_\  " | lolcat
-	echo "     \/_/    \/_/            \/_____/\/_/    \/_____/\/_____/\/_/  " | lolcat 
-	echo "    Created by : @mgmehra2005        Follow on Git" | lolcat 
-	echo ""
-
+    echo " __   __  ______        ____    ____    _____   _____   ____   " | lolcat
+    echo "/\ \ /\ \/\__ _\      /\ _\`\ /\ _\`\ /\ __\`\/\ __\`\/\ _\`\  " | lolcat
+    echo "\ \`\`\\/ /\/_/\ \/      \ \,\L\_\ \ \L\ \ \ \/\ \ \ \/\ \ \ \L\_\ " | lolcat
+    echo " \ \`\ /   \ \ \        \/_\__ \\ \ ,__/\ \ \ \ \ \ \ \ \ \ _\/ " | lolcat
+    echo "  \`\ \ \   \ \ \          /\ \L\ \ \ \/  \ \ \_\ \ \ \_\ \ \/  " | lolcat
+    echo "    \ \_\   \ \_\          \`\____\ \_\   \ \_____\ \_____\ \_\  " | lolcat
+    echo "     \/_/    \/_/            \/_____/\/_/    \/_____/\/_____/\/_/  " | lolcat 
+    echo "    Created by : @mgmehra2005        Follow on Git" | lolcat 
+    echo ""
 }
 
-printAsciiArt
-echo 1. Youtube
-echo 2. Spotify
+while true; do
+    clear
+    printAsciiArt
+    echo "1. Youtube"
+    echo "2. Spotify"
+    echo "3. Exit"
+    read -p ">> " choice
+    clear
 
-read -p ">> " choice
-clear
+    case "$choice" in
+        1)
+            printAsciiArt
+            echo "Selected Platform: Youtube"
+            echo ""
+            echo "1. Audio"
+            echo "2. Video"
+            read -p ">> " yt_choice
+            clear
 
-if [[ $choice -eq 1 ]]; then
-	printAsciiArt
-	echo "Selected Platform Youtube"
-	echo ""
-	echo 1. Audio
-	echo 2. Video
-	read -p ">> " yt_choice
-	clear
-
-	if [[ $yt_choice -eq 1 ]]; then
-		printAsciiArt
-		echo "Selected Platform Youtube Downlaoding Audio"
-		echo ""
-		read -p "Audio File Link : " link
-		getYoutubeAudio $link
-
-	elif [[ $yt_choice -eq 2 ]]; then
-		printAsciiArt
-		echo "Selected Platform Youtube Downlaoding Video"
-		echo ""
-		read -p "Video File Link : " link
-		getYoutubeVideo $link
-
-	else
-		echo Wrong User Input
-
-	fi
-
-elif [[ $choice -eq 2 ]]; then
-	printAsciiArt
-	echo "Selected Platform Spotify Downlaoding Audio"
-	echo ""
-	read -p "Audio File Link : " link
-	getSpotifyAudio $link
-else
-	echo Wrong User Input
-	exit 0
-fi
+            case "$yt_choice" in
+                1)
+                    printAsciiArt
+                    echo "Selected Platform: Youtube Downloading Audio"
+                    echo ""
+                    read -p "Audio File Link: " link
+                    getYoutubeAudio "$link"
+                    ;;
+                2)
+                    printAsciiArt
+                    echo "Selected Platform: Youtube Downloading Video"
+                    echo ""
+                    read -p "Video File Link: " link
+                    getYoutubeVideo "$link"
+                    ;;
+                *)
+                    echo "Wrong User Input"
+                    ;;
+            esac
+            read -p "Press Enter to continue..." ;;
+        2)
+            printAsciiArt
+            echo "Selected Platform: Spotify Downloading Audio"
+            echo ""
+            read -p "Audio File Link: " link
+            getSpotifyAudio "$link"
+            read -p "Press Enter to continue..." ;;
+        3)
+            echo "Thanks for using YT-Spoof!"
+            exit 0 ;;
+        *)
+            echo "Wrong User Input"
+            read -p "Press Enter to continue..." ;;
+    esac
+done
